@@ -156,6 +156,7 @@ header {
   text-align: center;
   padding: 13px 50px;
   border: 2px solid #1f1f1f;
+  color: #1f1f1f;
   background: transparent;
   border-radius: 66px;
   max-width: 263px;
@@ -166,6 +167,7 @@ header {
 .button1,
 .button2:hover {
   background: #1f1f1f;
+  border: 2px solid transparent;
   color: #ffffff;
 }
 
@@ -208,6 +210,12 @@ header {
   border-radius: 75px;
   margin: 7px;
   flex-shrink: 0;
+}
+
+.background-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
 }
 
 .man_playing_chess {
@@ -295,6 +303,20 @@ h3 {
   text-transform: uppercase;
 }
 
+.section-schedule {
+  margin-top: 80px;
+}
+
+.section-schedule > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-schedule-table {
+  margin-left: 90px;
+}
+
 .table {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -313,8 +335,13 @@ h3 {
   padding: 16px;
 }
 
-.border-right {
+.table-head {
   border-right: 2px solid #d0d0d0;
+  opacity: 70%;
+}
+
+.table-text {
+  font-weight: 600;
 }
 
 .del {
@@ -347,22 +374,22 @@ h2 {
   max-width: 800px;
 }
 
+.section-stages {
+  margin-top: 200px;
+}
+
 .stages-heading {
   position: relative;
 }
 
-.stages-heading::after {
-  position: absolute;
-  content: "Будущие источники обогащения васюкинцев";
-  top: 70px;
-  left: 298px;
-  max-width: 300px;
+.stages-heading-after {
   font-family: "Golos Text", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
   text-transform: none;
   color: #3057a2;
+  margin-top: 12px;
 }
 
 .stages-grid {
@@ -407,6 +434,22 @@ h2 {
   flex-shrink: 0;
 }
 
+.pagination-circle {
+  width: 10px;
+  height: 10px;
+  background: #d9d9d9;
+  border-radius: 50%;
+}
+
+.active {
+  background: #313131;
+}
+
+#pagination-stages {
+  display: flex;
+  column-gap: 6px;
+}
+
 .plane-wrapper {
   position: relative;
   width: 270px;
@@ -414,7 +457,6 @@ h2 {
 }
 
 .plane-wrapper img {
-  flex-shrink: 0;
   position: absolute;
   right: -80px;
   top: -110px;
@@ -422,18 +464,20 @@ h2 {
 
 .section-participants {
   overflow: hidden;
-}
-
-.section-participants > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 200px;
 }
 
 .controls {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
+  margin: 0 auto;
+}
+
+.controls-bottom {
+  display: none;
+  margin-bottom: 80px;
 }
 
 .arrow {
@@ -464,13 +508,17 @@ h2 {
 .team-container {
   display: flex;
   flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   transition: 1s ease-in-out;
+  margin: 60px 0 40px 0;
 }
 
 .team-group {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   margin-top: 60px;
   margin-bottom: 140px;
   width: 100%;
@@ -530,7 +578,19 @@ footer {
   line-height: 19.2px;
   text-align: justify;
   opacity: 60%;
-  padding: 14px 0 46px 0;
+  padding: 14px 0 26px 0;
+}
+
+.screen {
+  height: 100vh;
+  width: 100%;
+  padding: 30% 3%;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: center;
+  color: #fff;
+  background: #3057a2;
+  display: none;
 }
 
 .flex {
@@ -541,33 +601,13 @@ footer {
   justify-content: space-between;
 }
 
+.align-center {
+  align-items: center;
+}
+
 .text-red {
   color: #f54932;
   font-weight: 700;
-}
-
-.ml-90 {
-  margin-left: 90px;
-}
-
-.mt-64 {
-  margin-top: 64px;
-}
-
-.mt-80 {
-  margin-top: 80px;
-}
-
-.mt-200 {
-  margin-top: 200px;
-}
-
-.text-bold {
-  font-weight: 600;
-}
-
-.opacity-70 {
-  opacity: 70%;
 }
 
 @keyframes running-text {
@@ -575,6 +615,268 @@ footer {
     transform: translateZ(0);
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/*==========================================*/
+
+@media (min-width: 700px) and (max-width: 980px) {
+  .section-schedule > div {
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  .background-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .section-schedule-table h3 {
+    margin: 50px;
+  }
+  .stages-grid {
+    margin: 148px 0 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+  }
+  .stages-text {
+    padding: 50px 10px;
+    max-width: 48%;
+    flex-shrink: 0;
+  }
+  .controls-bottom {
+    display: none;
+  }
+}
+
+@media (min-width: 365px) and (max-width: 699px) {
+  .wrapper {
+    padding: 20px;
+  }
+  header {
+    height: 800px;
+  }
+  .logo > img {
+    width: 213px;
+    height: 32px;
+  }
+  .background {
+    flex-wrap: wrap;
+  }
+  .headgroup {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .headgroup h1 {
+    font-size: 36px;
+    line-height: 39.6px;
+  }
+  .headgroup p {
+    font-size: 18px;
+    text-align: left;
+  }
+  .header-btns {
+    flex-direction: column;
+    margin-top: 32px;
+    gap: 14px;
+  }
+  .header-button {
+    padding: 18px 20px;
+    max-width: 100%;
+  }
+  .button2 {
+    background: #fff;
+    border: 2px solid transparent;
+  }
+  .heading-background {
+    top: -90px;
+    left: 25px;
+    width: 320px;
+    height: 320px;
+  }
+  .bg-1-1 {
+    top: -12px;
+    left: -25px;
+    width: 370px;
+    height: 370px;
+  }
+  .bg-1-2 {
+    top: 43px;
+    left: 220px;
+    width: 73px;
+  }
+  .bg-1-3 {
+    top: 83px;
+    left: 72px;
+    width: 65px;
+  }
+  .bg-1-4 {
+    top: 41px;
+    left: -350px;
+    width: 823px;
+  }
+  .bg-1-5 {
+    top: 35px;
+    left: -353px;
+    width: 814px;
+  }
+  .bg-1-6 {
+    top: 192px;
+    left: 159px;
+    width: 97px;
+  }
+  .bg-1-7 {
+    display: none;
+  }
+  .ticker {
+    padding: 10px 0;
+  }
+  .ticker-text {
+    font-size: 16px;
+    line-height: 17.6px;
+  }
+  .section-schedule {
+    margin-top: 28px;
+  }
+  .section-schedule div {
+    flex-direction: column;
+  }
+  .section-schedule h3 {
+    margin-top: 18px;
+    font-size: 28px;
+    line-height: 37.8px;
+    display: flex;
+    flex-direction: column;
+  }
+  .section-schedule h3 > div {
+    order: 1;
+  }
+  .section-schedule img {
+    width: 330px;
+    height: 210px;
+    margin: 25px 0;
+  }
+  .background-group {
+    margin-top: 16px;
+  }
+  .man_playing_chess {
+    width: 295px;
+    margin-bottom: 0;
+  }
+  .bg-2-1 {
+    top: 19px;
+    left: 233px;
+    width: 94px;
+  }
+  .bg-2-2 {
+    top: -43px;
+    left: -14px;
+    width: 359px;
+  }
+  .bg-2-3 {
+    top: 52px;
+    left: 38px;
+    width: 240px;
+  }
+  .bg-2-4 {
+    top: 214px;
+    left: 119px;
+    width: 227px;
+  }
+  .bg-2-5 {
+    top: 201px;
+    left: -20px;
+    width: 163px;
+  }
+  .bg-2-6 {
+    top: 236px;
+    left: 31px;
+    width: 110px;
+  }
+  h2 {
+    font-size: 36px;
+    line-height: 39.6px;
+    max-width: 100%;
+  }
+  .section-schedule-table {
+    margin-left: 0;
+  }
+  .table {
+    display: flex;
+    flex-direction: column;
+    margin-top: 44px;
+  }
+  .table-item {
+    border: none;
+  }
+  .table-head {
+    border: none;
+    padding-bottom: 6px;
+  }
+  .table-text {
+    border-bottom: 2px solid #d0d0d0;
+    padding-top: 6px;
+  }
+  .text-comment {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+  .section-stages {
+    margin-top: 120px;
+  }
+  .stages-heading-after {
+    font-size: 18px;
+    line-height: 21.6px;
+  }
+  .stages-grid {
+    margin: 80px 0 30px 0;
+    display: flex;
+    gap: 0;
+    width: 100%;
+  }
+  .stages-text {
+    padding: 50px;
+    width: 100%;
+    flex-shrink: 0;
+  }
+  .section-participants {
+    margin-top: 120px;
+  }
+  .controls-top {
+    display: none;
+  }
+  .controls-bottom {
+    display: flex;
+  }
+  .arrow {
+    width: 36px;
+    height: 36px;
+    padding: 8px 12px;
+  }
+  .team-group {
+    margin-bottom: 30px;
+  }
+  .team-item {
+    width: 100%;
+  }
+  .footer-text {
+    padding: 20px 0 30px 0;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 364px) {
+  .screen {
+    display: block;
+  }
+  header,
+  main,
+  footer,
+  .ticker {
+    display: none;
   }
 }

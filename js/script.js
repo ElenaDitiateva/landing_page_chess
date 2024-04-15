@@ -1,11 +1,15 @@
 const slider = document.querySelector(".team-container");
-const arrowLeft = document.querySelector(".arrow-left");
-const arrowRight = document.querySelector(".arrow-right");
-const slides = document.querySelectorAll(".team-group");
-const current = document.querySelector('.pagination-current');
+const slides = document.querySelectorAll(".team-item");
+const arrowLeft = document.getElementById("arrow-left-top");
+const arrowRight = document.getElementById("arrow-right-top");
+const arrowLeftB = document.getElementById("arrow-left-bottom");
+const arrowRightB = document.getElementById("arrow-right-bottom");
+const currentTop = document.getElementById('pagination-current-top');
+const currentBottom = document.getElementById('pagination-current-bottom');
 
 let currentSlideIndex = 0;
-currentSlideIndex == 0 ? current.innerHTML = '3' : current.innerHTML = '6';
+currentSlideIndex == 0 ? currentTop.innerHTML = '3' : currentTop.innerHTML = '6';
+currentBottom.innerHTML = currentSlideIndex + 1;
 const sliderWidth = slider.clientWidth;
 
 function showSlide() {
@@ -23,7 +27,8 @@ function nextSlide() {
         newSlideIndex = 0;
     }
     changeSlide(newSlideIndex);
-    currentSlideIndex == 0 ? current.innerHTML = '3' : current.innerHTML = '6';
+    currentSlideIndex == 0 ? currentTop.innerHTML = '3' : currentTop.innerHTML = '6';
+    currentBottom.innerHTML = currentSlideIndex + 1;
 }
 
 function previousSlide() {
@@ -32,8 +37,11 @@ function previousSlide() {
         newSlideIndex = slides.length - 1;
     }
     changeSlide(newSlideIndex);
-    currentSlideIndex == 0 ? current.innerHTML = '3' : current.innerHTML = '6';
+    currentSlideIndex == 0 ? currentTop.innerHTML = '3' : currentTop.innerHTML = '6';
+    currentBottom.innerHTML = currentSlideIndex + 1;
 }
 
 arrowLeft.addEventListener("click", previousSlide);
 arrowRight.addEventListener("click", nextSlide);
+arrowLeftB.addEventListener("click", previousSlide);
+arrowRightB.addEventListener("click", nextSlide);
