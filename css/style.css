@@ -621,7 +621,7 @@ footer {
 
 /*==========================================*/
 
-@media (min-width: 700px) and (max-width: 980px) {
+@media (max-width: 980px) {
   .section-schedule > div {
     flex-wrap: wrap;
     gap: 30px;
@@ -652,7 +652,7 @@ footer {
   }
 }
 
-@media (min-width: 365px) and (max-width: 699px) {
+@media (max-width: 699px) {
   .wrapper {
     padding: 20px;
   }
