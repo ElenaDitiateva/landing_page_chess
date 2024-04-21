@@ -398,11 +398,15 @@ h2 {
 }
 
 .stages-grid {
+  margin-top: 54px;
+}
+
+.slider-track-stages {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 54px;
+  transition: 1s ease-in-out;
 }
 
 .div1 {
@@ -422,7 +426,6 @@ h2 {
   background-position: center center;
   padding: 20px;
   display: flex;
-  justify-content: space-between;
 }
 
 .number {
@@ -546,7 +549,6 @@ h2 {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-
   width: 100%;
   transition: 1s ease-in-out;
 }
@@ -666,7 +668,7 @@ footer {
     max-width: 100%;
     margin-top: 12px;
   }
-  .stages-grid {
+  .slider-track-stages {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -855,14 +857,22 @@ footer {
   }
   .stages-grid {
     margin: 150px 0 30px 0;
+    overflow: hidden;
+  }
+  .slider-track-stages {
     flex-wrap: nowrap;
-    gap: 20px;
     width: 100%;
-    margin-bottom: 28px;
+  }
+  .div1 {
+    grid-area: auto / auto / auto / auto;
+  }
+  .div2 {
+    grid-area: auto / auto / auto / auto;
   }
   .stages-text {
-    padding: 75px 30px 30px 30px;
-    max-width: 100%;
+    padding: 75px 20px 40px 20px;
+    max-width: 95%;
+    flex-shrink: 0;
   }
   .section-participants {
     margin-top: 0;

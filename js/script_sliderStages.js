@@ -1,4 +1,5 @@
 const sliderStages = document.querySelector(".stages-grid");
+const trackStage = document.querySelector('.slider-track-stages');
 const arrowLeftStages = document.getElementById("arrow-left-stages");
 const arrowRightStages = document.getElementById("arrow-right-stages");
 const slidesStages = document.querySelectorAll(".stages-text");
@@ -32,7 +33,7 @@ function removeActiveClass() {
 }
 
 function showSlide() {
-    sliderStages.style.transform = `translateX(-${currentSlideIndexStages * sliderStagesWidth}px)`;
+    trackStage.style.transform = `translateX(-${currentSlideIndexStages * sliderStagesWidth}px)`;
 }
 
 function changeSlide(slideIndex) {
