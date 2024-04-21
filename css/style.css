@@ -13,6 +13,12 @@ body {
   color: #313131;
 }
 
+h1, h2, h3 {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
 .wrapper {
   max-width: 1366px;
   margin: 0 auto;
@@ -116,40 +122,36 @@ header {
   background-position: center center;
 }
 
-.headgroup {
+.header__content {
   max-width: 545px;
   text-align: center;
   margin-top: 62px;
   z-index: 10;
 }
 
-.headgroup h1 {
-  font-family: "Merriweather", serif;
-  font-weight: 400;
-  font-style: normal;
+.header__content h1 {
   font-size: 60px;
   line-height: 66px;
-  text-transform: uppercase;
 }
 
-.headgroup h1 > span:nth-child(1) {
+.header__content h1 > span:nth-child(1) {
   display: inline-block;
   text-align: left;
 }
 
-.headgroup p {
+.header__content p {
   font-size: 18px;
   line-height: 23.4px;
   margin-top: 24px;
 }
 
-.header-btns {
+.header__btns {
   margin-top: 40px;
   display: flex;
   gap: 16px;
 }
 
-.header-button {
+.header__button {
   font-size: 16px;
   font-weight: 500;
   line-height: 20.8px;
@@ -210,12 +212,6 @@ header {
   border-radius: 75px;
   margin: 7px;
   flex-shrink: 0;
-}
-
-.background-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 64px;
 }
 
 .man_playing_chess {
@@ -294,26 +290,34 @@ header {
   background-position: center center;
 }
 
-h3 {
-  font-family: "Merriweather", serif;
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 48.6px;
-  text-align: left;
-  text-transform: uppercase;
-}
-
 .section-schedule {
   margin-top: 80px;
 }
 
-.section-schedule > div {
+.section-schedule__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.section-schedule-table {
+.section-schedule h3 {
+  font-size: 36px;
+  line-height: 48.6px;
+  text-align: left;
+}
+
+.section-schedule__mobile {
+  display: none;
+  margin: 25px 0;
+  text-align: center;
+}
+
+.section-schedule__desktop {
+  display: block;
+  margin: 0 0 50px 50px;
+}
+
+.section-schedule__table {
   margin-left: 90px;
 }
 
@@ -324,7 +328,7 @@ h3 {
   margin-top: 60px;
 }
 
-.table-item {
+.table__item {
   font-family: "Golos Text", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -350,8 +354,8 @@ h3 {
   margin-right: 9px;
 }
 
-.table-item:nth-child(9),
-.table-item:nth-child(10) {
+.table__item:nth-child(9),
+.table__item:nth-child(10) {
   border-bottom: none;
   padding-bottom: 0;
 }
@@ -362,34 +366,31 @@ h3 {
   font-weight: 400;
   line-height: 24px;
   color: #3057a2;
-  margin-top: 32px;
+  margin-top: 48px;
 }
 
 h2 {
-  font-family: "Merriweather", serif;
   font-size: 54px;
-  font-weight: 400;
   line-height: 64.8px;
-  text-transform: uppercase;
-  max-width: 800px;
 }
 
 .section-stages {
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
-.stages-heading {
+.section-stages__heading {
   position: relative;
 }
 
-.stages-heading-after {
-  font-family: "Golos Text", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24px;
-  text-transform: none;
-  color: #3057a2;
-  margin-top: 12px;
+.section-stages__heading h2 {
+  max-width: 800px;
+}
+
+.section-stages__heading p {
+  position: absolute;
+  bottom: 9px;
+  left: 298px;
+  max-width: 280px;
 }
 
 .stages-grid {
@@ -450,21 +451,29 @@ h2 {
   column-gap: 6px;
 }
 
-.plane-wrapper {
+.section-stages__plane-img {
   position: relative;
-  width: 270px;
   flex-shrink: 0;
 }
 
-.plane-wrapper img {
+.section-stages__plane-img img {
   position: absolute;
-  right: -80px;
-  top: -110px;
+  left: 100px;
+}
+
+.plane-img-mobile {
+  display: none;
+  z-index: 10;
+}
+
+.plane-img-desktop {
+  display: block;
+  z-index: 10;
 }
 
 .section-participants {
   overflow: hidden;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 .controls {
@@ -510,6 +519,14 @@ h2 {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  gap: 20px; 
+
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px; */
+
   width: 100%;
   transition: 1s ease-in-out;
   margin: 60px 0 40px 0;
@@ -532,7 +549,7 @@ h2 {
   justify-content: center;
   text-align: center;
   flex-shrink: 0;
-  width: 33%;
+  /* width: 30%; */
 }
 
 .team-item h4 {
@@ -581,7 +598,7 @@ footer {
   padding: 14px 0 26px 0;
 }
 
-.screen {
+.screen-error {
   height: 100vh;
   width: 100%;
   padding: 30% 3%;
@@ -621,24 +638,42 @@ footer {
 
 /*==========================================*/
 
-@media (min-width: 700px) and (max-width: 980px) {
-  .section-schedule > div {
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
+@media (max-width: 980px) {
+  .wrapper {
+    padding: 50px 40px;
   }
-  .background-group {
-    flex-wrap: wrap;
-    justify-content: center;
+  .section-schedule {
+    margin-top: 0;
   }
-  .section-schedule-table h3 {
-    margin: 50px;
+  .section-schedule__content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .section-schedule__mobile {
+    display: block;
+  }
+  .section-schedule__desktop {
+    display: none;
+  }
+  .man_playing_chess {
+    margin: 100px 0;
+  }
+  .section-schedule__table {
+    margin-left: 0;
+  }
+  .section-stages {
+    margin-top: 20px;
+  }
+  .section-stages__heading p {
+    position: unset;
+    max-width: 100%;
+    margin-top: 12px;
   }
   .stages-grid {
-    margin: 148px 0 30px 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 20px;
     width: 100%;
   }
@@ -650,43 +685,52 @@ footer {
   .controls-bottom {
     display: none;
   }
+  .team-container {
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px; */
+    /* overflow: hidden;
+    height: 520px; */
+      
+    width: 100%;
+    margin: 60px 0 40px 0;
+  }
 }
 
-@media (min-width: 365px) and (max-width: 699px) {
+@media (max-width: 599px) {
   .wrapper {
     padding: 20px;
   }
   header {
     height: 800px;
   }
-  .logo > img {
+  .logo > a > img {
     width: 213px;
     height: 32px;
   }
-  .background {
-    flex-wrap: wrap;
-  }
-  .headgroup {
+  .header__content {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
   }
-  .headgroup h1 {
+  .header__content h1 {
     font-size: 36px;
     line-height: 39.6px;
   }
-  .headgroup p {
+  .header__content p {
     font-size: 18px;
     text-align: left;
   }
-  .header-btns {
+  .header__btns {
     flex-direction: column;
     margin-top: 32px;
     gap: 14px;
   }
-  .header-button {
+  .header__button {
     padding: 18px 20px;
-    max-width: 100%;
+    min-width: 100%;
   }
   .button2 {
     background: #fff;
@@ -739,12 +783,6 @@ footer {
     font-size: 16px;
     line-height: 17.6px;
   }
-  .section-schedule {
-    margin-top: 28px;
-  }
-  .section-schedule div {
-    flex-direction: column;
-  }
   .section-schedule h3 {
     margin-top: 18px;
     font-size: 28px;
@@ -752,20 +790,19 @@ footer {
     display: flex;
     flex-direction: column;
   }
-  .section-schedule h3 > div {
-    order: 1;
-  }
   .section-schedule img {
     width: 330px;
     height: 210px;
-    margin: 25px 0;
   }
-  .background-group {
-    margin-top: 16px;
+  .section-schedule__mobile {
+    display: block;
+  }
+  .section-schedule__desktop {
+    display: none;
   }
   .man_playing_chess {
     width: 295px;
-    margin-bottom: 0;
+    margin: 20px 0;
   }
   .bg-2-1 {
     top: 19px;
@@ -802,15 +839,12 @@ footer {
     line-height: 39.6px;
     max-width: 100%;
   }
-  .section-schedule-table {
-    margin-left: 0;
-  }
   .table {
     display: flex;
     flex-direction: column;
     margin-top: 44px;
   }
-  .table-item {
+  .table__item {
     border: none;
   }
   .table-head {
@@ -825,26 +859,24 @@ footer {
     font-size: 18px;
     line-height: 21.6px;
   }
-  .section-stages {
-    margin-top: 120px;
+  .plane-img-mobile {
+    display: block;
   }
-  .stages-heading-after {
-    font-size: 18px;
-    line-height: 21.6px;
+  .plane-img-desktop {
+    display: none;
   }
   .stages-grid {
-    margin: 80px 0 30px 0;
-    display: flex;
-    gap: 0;
+    margin: 150px 0 30px 0;
+    flex-wrap: nowrap;
+    gap: 20px;
     width: 100%;
   }
   .stages-text {
-    padding: 50px;
-    width: 100%;
-    flex-shrink: 0;
+    padding: 75px 30px 30px 30px;
+    max-width: 100%;
   }
   .section-participants {
-    margin-top: 120px;
+    margin-top: 20px;
   }
   .controls-top {
     display: none;
@@ -857,9 +889,9 @@ footer {
     height: 36px;
     padding: 8px 12px;
   }
-  .team-group {
+  /* .team-group {
     margin-bottom: 30px;
-  }
+  } */
   .team-item {
     width: 100%;
   }
@@ -870,7 +902,7 @@ footer {
 }
 
 @media screen and (max-width: 364px) {
-  .screen {
+  .screen-error {
     display: block;
   }
   header,

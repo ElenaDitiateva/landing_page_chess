@@ -4,13 +4,15 @@ const arrowLeft = document.getElementById("arrow-left-top");
 const arrowRight = document.getElementById("arrow-right-top");
 const arrowLeftB = document.getElementById("arrow-left-bottom");
 const arrowRightB = document.getElementById("arrow-right-bottom");
-const currentTop = document.getElementById('pagination-current-top');
-const currentBottom = document.getElementById('pagination-current-bottom');
+const currentTop = document.getElementById("pagination-current-top");
+const currentBottom = document.getElementById("pagination-current-bottom");
 
 let currentSlideIndex = 0;
 currentSlideIndex == 0 ? currentTop.innerHTML = '3' : currentTop.innerHTML = '6';
 currentBottom.innerHTML = currentSlideIndex + 1;
 const sliderWidth = slider.clientWidth;
+const mediaQuerySm = window.matchMedia('(max-width: 599px)');
+const mediaQueryMd = window.matchMedia('(max-width: 1090px)');
 
 function showSlide() {
     slider.style.transform = `translateX(-${currentSlideIndex * sliderWidth}px)`;
