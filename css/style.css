@@ -482,7 +482,7 @@ h2 {
 .section-participants__heading {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   gap: 30px;
 }
 
