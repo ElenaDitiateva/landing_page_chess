@@ -6,18 +6,18 @@ const track = document.querySelector('.slider-track');
 const btnPrev = document.querySelector('.btn-prev');
 const btnNext = document.querySelector('.btn-next');
 const items = document.querySelectorAll('.team-item');
+const currentCount = document.getElementById("pagination-current-top");
 const itemsCount = items.length;
-// ---
-
+// -----
 const mediaQuerySm = window.matchMedia('(max-width: 720px)');
 const mediaQueryMd = window.matchMedia('(min-width: 1090px)');
 let slidesToShow = mediaQueryMd.matches ? 3 : (mediaQuerySm.matches ? 1 : 2);
 console.log(mediaQuerySm);
 console.log(mediaQueryMd);
-
 console.log('slidesToShow = ' + slidesToShow);
-
-// ---
+// -----
+currentCount.innerHTML = slidesToShow;
+let countShowItems = slidesToShow;
 const itemWidth = container.clientWidth / slidesToShow;
 const movePosition = slidesToShow * itemWidth;
 
@@ -27,8 +27,10 @@ items.forEach((item) => {
 
 btnNext.addEventListener('click', () => {
     const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
-
     position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+
+    countShowItems += slidesToShow;
+    currentCount.innerHTML = countShowItems;
 
     setPosition();
     checkBtns();
@@ -36,8 +38,10 @@ btnNext.addEventListener('click', () => {
 
 btnPrev.addEventListener('click', () => {
     const itemsLeft = Math.abs(position) / itemWidth;
-
     position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
+    
+    countShowItems -= slidesToShow;
+    currentCount.innerHTML = countShowItems;
 
     setPosition();
     checkBtns();
