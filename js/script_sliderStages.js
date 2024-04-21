@@ -48,6 +48,7 @@ function nextSlide() {
         newSlideIndex = 0;
     }
     changeSlide(newSlideIndex);
+    checkBtnsStages();
 }
 
 function previousSlide() {
@@ -56,8 +57,15 @@ function previousSlide() {
         newSlideIndex = slidesStages.length - 1;
     }
     changeSlide(newSlideIndex);
+    checkBtnsStages();
 }
 
+function checkBtnsStages() {
+    arrowLeftStages.disabled = currentSlideIndexStages === 0;
+    arrowRightStages.disabled = currentSlideIndexStages === (slidesStages.length - 1);
+};
+
+checkBtnsStages();
 addPagination();
 arrowLeftStages.addEventListener("click", previousSlide);
 arrowRightStages.addEventListener("click", nextSlide);
