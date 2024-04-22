@@ -36,9 +36,18 @@ header {
   background: url("../img/bg-paper.jpg") no-repeat;
   background-size: cover;
   background-position: center center;
+  overflow: hidden;
 }
 
-.heading-background {
+header > .wrapper {
+  overflow: unset;
+}
+
+.header {
+  display: flex;
+}
+
+.header__background {
   position: relative;
   top: -90px;
   left: 100px;
@@ -47,6 +56,7 @@ header {
   background: url("../img/bg-ellipse.png") no-repeat;
   background-size: contain;
   background-position: center center;
+  flex-shrink: 0;
 }
 
 .bg-1-1 {
@@ -638,10 +648,10 @@ footer {
 
 @media (max-width: 980px) {
   .wrapper {
-    padding: 50px 40px;
+    padding: 26px 40px;
   }
   .section-schedule {
-    margin-top: 0;
+    margin-top: 25px;
   }
   .section-schedule__content {
     flex-direction: column;
@@ -661,7 +671,7 @@ footer {
     margin-left: 0;
   }
   .section-stages {
-    margin-top: 20px;
+    margin-top: 50px;
   }
   .section-stages__heading p {
     position: unset;
@@ -685,7 +695,7 @@ footer {
   }
   .team-container {
     width: 100%;
-    margin: 60px 0 40px 0;
+    margin: 60px 0;
   }
 }
 
@@ -700,10 +710,15 @@ footer {
     width: 213px;
     height: 32px;
   }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
   .header__content {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
+    max-width: 350px;
   }
   .header__content h1 {
     font-size: 36px;
@@ -726,9 +741,9 @@ footer {
     background: #fff;
     border: 2px solid transparent;
   }
-  .heading-background {
+  .header__background {
     top: -90px;
-    left: 25px;
+    left: 0;
     width: 320px;
     height: 320px;
   }
