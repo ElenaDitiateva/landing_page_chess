@@ -60,7 +60,7 @@ header > .wrapper {
   background: url("../img/bg-ellipse.png") 90% no-repeat,
     url("../img/bg-paper.jpg") 40% 40% no-repeat fixed;
   background-size: contain, cover;
-  background-blend-mode: color-burn;
+  background-blend-mode: color;
 }
 
 .bg-1-1 {
