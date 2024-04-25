@@ -332,11 +332,10 @@ header > .wrapper {
 
 .section-schedule__desktop {
   display: block;
-  margin: 0 0 50px 50px;
 }
 
 .section-schedule__table {
-  margin-left: 90px;
+  margin: 70px 0 0 90px;
 }
 
 .table {
@@ -641,7 +640,7 @@ footer {
 
 @keyframes running-text {
   0% {
-    transform: translateZ(0);
+    transform: translateX(5%);
   }
   100% {
     transform: translate3d(-100%, 0, 0);
@@ -672,7 +671,7 @@ footer {
     margin: 100px 0;
   }
   .section-schedule__table {
-    margin-left: 0;
+    margin: 0;
   }
   .section-stages {
     margin-top: 50px;
